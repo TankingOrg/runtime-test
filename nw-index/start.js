@@ -52,9 +52,14 @@ http.createServer(function (request, response) {
 var getIP = function(){
    var IPv4,hostName;  
     hostName=os.hostname();  
-    for(var i=0;i<os.networkInterfaces().eth0.length;i++){  
-        if(os.networkInterfaces().eth0[i].family=='IPv4'){  
-            IPv4=os.networkInterfaces().eth0[i].address;  
+    var eth = os.networkInterfaces();
+    var serverIP = [];
+    if(eth.eth0  && eth.eth0.length > 1)  serverIP = eth.eth0;
+    else if(eth.wlan0) serverIP = eth.wlan0;
+    else serverIP = eth.lo;
+    for(var i=0;i<serverIP.length;i++){  
+        if(serverIP[i].family=='IPv4'){  
+            IPv4=serverIP[i].address;  
         }  
     }
     console.log('----------local IP: '+IPv4);  
