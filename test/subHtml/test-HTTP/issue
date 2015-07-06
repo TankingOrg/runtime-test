@@ -1,0 +1,2 @@
+在android平台下存在问题，在linux上能成功建立http服务，
+在android平台下，在执行listen时，会出现错误。

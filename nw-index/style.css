@@ -1,0 +1,28 @@
+#content{
+	cursor: pointer;
+}
+#content li{
+	cursor: pointer;
+	display:block; 
+	background: #ccc;
+	border: 1px solid #999;
+	margin: 5px;
+}
+
+#content li:hover{
+	background: #aaa;
+}
+
+#content li:select{
+	background: #eee;
+}
+
+#message{
+
+}
+#server-m{
+
+}
+#html-m{
+	
+}
