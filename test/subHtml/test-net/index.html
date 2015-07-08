@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>nw-test</title>
+  </head>
+  <body>
+    <h1>test demo</h1>
+    <p id="message"></p>
+    <script type="text/javascript">
+    var net = require('net');
+    var server = net.createServer(function(c){
+      console.log('wwtwwt:client conneted');
+      c.on('end',function(){
+        console.log("wwtwwt: client disconnected");
+      })
+      c.write('hello\r\n');
+      c.pipe(c);
+    });
+    server.listen(8124,function(){
+      console.log("wwtwwt: server bound");
+    });
+    document.getElementById('message').innerHTML = global + "===" + process.version + "===" + window;
+    </script>
+  </body>
+</html>

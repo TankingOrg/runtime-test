@@ -1,0 +1,23 @@
+测试模块,测试函数,测试代码路径,测试结果
+FS,readdir(),subHtml/test-FS,OK
+path,resolve(),subHtml/test-FS,OK
+process,cwd(),subHtml/test-FS,OK
+http,createServer(),subHtml/test-http,
+http,listen(port),subHtml/test-http,无结果
+net,createServer(),subHtml/test-net,无结果
+net,listen(port),subHtml/test-net,无结果
+child_process,exec(),subHtml/test-childprocess,路径错误:spawn /bin/sh ENOENT
+os,tmpdir(),subHtml/test-os,OK
+os,endianness(),subHtml/test-os,OK
+os,hostname(),subHtml/test-os,OK
+os,type(),subHtml/test-os,OK
+os,platform(),subHtml/test-os,OK
+os,arch(),subHtml/test-os,OK
+os,release(),subHtml/test-os,OK
+os,uptime(),subHtml/test-os,OK
+os,loadavg(),subHtml/test-os,OK
+os,totalmem(),subHtml/test-os,OK
+os,freemem(),subHtml/test-os,OK
+os,cpus(),subHtml/test-os,OK
+os,networkInterfaces(),subHtml/test-os,OK
+os,EOL,subHtml/test-os,OK

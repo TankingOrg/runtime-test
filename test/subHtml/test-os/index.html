@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>nw-test</title>
+  </head>
+  <body>
+    <h1>test demo</h1>
+    <p id="message"></p>
+    <script type="text/javascript">
+    var os = require('os');
+    var tmpdir = os.tmpdir();
+    var  endianness = os.endianness();
+    var hostname = os.hostname();
+    var name = os.type();
+    document.getElementById('message').innerHTML =  "os.tmpdir() = " + tmpdir+
+      "<br>os.endianness()=" + endianness+
+      "<br>os.hostname()=" + hostname+
+      "<br>os.type() = " + name+
+      "<br>os.platform()="+os.platform()+
+      "<br>os.arch()="+os.arch()+
+      "<br>os.release()="+os.release()+
+      "<br>os.uptime()="+os.uptime()+
+      "<br>os.loadavg()"+os.loadavg().toString()+
+      "<br>os.totalmem()="+os.totalmem()+
+      "<br>os.freemem()="+os.freemem()+
+      "<br>os.cpus()=";
+      var cpus = os.cpus();
+      for (var i = 0; i < cpus.length; i++) {
+        for(var key in cpus[i]){
+          document.getElementById("message").innerHTML += "<br>  -----"+ key + "===" + cpus[i][key];
+        }
+      };
+      var network = os.networkInterfaces();
+      for(var key in network){
+        document.getElementById("message").innerHTML += "<br> <br>"+ key + "****************" ;
+        for (var i = 0; i < network[key].length; i++) {
+          document.getElementById("message").innerHTML += "<br> "+ "--------------------------------------------------------" ;
+          for(var key1 in network[key][i]){
+            document.getElementById("message").innerHTML += "<br>  ------- "+ key1+ "==="  + network[key][i][key1];
+          }
+        };
+      }
+      document.getElementById("message").innerHTML += "<br> os.EOL= " + os.EOL;
+    </script>
+  </body>
+</html>

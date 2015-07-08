@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>nw-test</title>
+  </head>
+  <body>
+    <h1>test demo</h1>
+    <p id="message"></p>
+    <script type="text/javascript">
+    var exec = require('child_process').exec;
+    var cmdStr = "ls";
+    exec(cmdStr,function(err,stdout,stderr){
+      document.getElementById('message').innerHTML = "err: "  +  err; 
+      console.log('wwtwwt: '+ err + stdout+ stderr);
+       document.getElementById('message').innerHTML  += "<br>stdout:" + stdout;
+       document.getElementById('message').innerHTML += "<br>stderr:" + stderr;
+    })
+   // var free = spawn('free',['-m']);
+    /*free.stdout.on('data',function(data){
+      document.getElementById('message').innerHTML = "cat stdout:"
+       document.getElementById('message').innerHTML  += data;
+    })*/
+
+    </script>
+  </body>
+</html>
