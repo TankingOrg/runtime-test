@@ -10,8 +10,17 @@
        |
        |--test/       //测试代码存放目录。
 
-# 测试方法:
-##   1 下载nw 到runtime目录下:
-##   2 执行nw程序:   ./runtime/nw ./nw-index 
-##   3 打开手机中的content_shell,输入http://ip地址:端口号, 进行测试 ( ip地址和端口显示在nw的网页上)
+# 测试方法(content_shell):
+###   1 下载nw 到runtime目录下:
+###   2 执行nw程序:   ./runtime/nw ./nw-index 
+###   3 打开手机中的content_shell,输入http://ip地址:端口号, 进行测试 ( ip地址和端口显示在nw的网页上)
+
+# 编写测试程序方法:
+### 在test目录下建立文件夹,并在文件夹下简历index.html文件,或者直接在test目录下建立测试用的html文件.
+### 写完测试用的html文件后,在test/index.html中加入测试文件的索引:
+    如下:
+      <p><a href="./subHtml/global.html">global.html</a></p>
+### 使用nw启动测试验证测试文件是否能正常运行,并调试.
+       ./runtime/nw ./test/
+
 

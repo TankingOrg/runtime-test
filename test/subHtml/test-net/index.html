@@ -9,6 +9,9 @@
     <p id="message"></p>
     <script type="text/javascript">
     var net = require('net');
+    process.on('uncaughtException', function(err) {
+        console.log('wwtwwt: ' + err);
+    });
     var server = net.createServer(function(c){
       console.log('wwtwwt:client conneted');
       c.on('end',function(){

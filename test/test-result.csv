@@ -1,11 +1,14 @@
 测试模块,测试函数,测试代码路径,测试结果
 FS,readdir(),subHtml/test-FS,OK
+FS,mkdir(),subHtml/test-FS,Error: EACCES: permission denied
 path,resolve(),subHtml/test-FS,OK
 process,cwd(),subHtml/test-FS,OK
-http,createServer(),subHtml/test-http,
-http,listen(port),subHtml/test-http,无结果
+process,uncaughtException,subHtml/test-FS等多个文件,OK
+process,chdir(),subHtml/test-FS,"error: EACCES: permission denied, uv_chdir"
+http,createServer(),subHtml/test-http,无结果
+http,listen(port),subHtml/test-http, Error: listen EACCES 127.0.0.1:10241
 net,createServer(),subHtml/test-net,无结果
-net,listen(port),subHtml/test-net,无结果
+net,listen(port),subHtml/test-net, Error: listen EACCES 0.0.0.0:8124
 child_process,exec(),subHtml/test-childprocess,路径错误:spawn /bin/sh ENOENT
 os,tmpdir(),subHtml/test-os,OK
 os,endianness(),subHtml/test-os,OK
@@ -21,3 +24,21 @@ os,freemem(),subHtml/test-os,OK
 os,cpus(),subHtml/test-os,OK
 os,networkInterfaces(),subHtml/test-os,OK
 os,EOL,subHtml/test-os,OK
+process,env,subHtml/test-process,OK
+process,versions,subHtml/test-process,Undefined  与nw 中结果相同
+process,exit(),subHtml/test-process,"报错,nw 直接退出"
+process,pid,subHtml/test-process,OK
+process,arch,subHtml/test-process,OK
+process,platform,subHtml/test-process,OK
+process,memoryUsage,subHtml/test-process,OK
+process,uptime,subHtml/test-process,OK
+process,hrtime,subHtml/test-process,OK
+process,mainModule,subHtml/test-process,OK
+DNS,lookup(),subHtml/test-DNS,"Error: getaddrinfo ENOTFOUND www.baidu.com"""
+DNS,resolve4(),subHtml/test-DNS,"Error: queryA ECONNREFUSED www.baidu.com"""
+Domain,on(error),subHtml/test-Domain,OK
+events,EventEmitter.emit,subHtml/test-Events,OK
+events,EventEmitter.on(),subHtml/test-Events,OK
+util,inherits(),subHtml/test-Events,OK
+URL,ALL,Test-URL.html,OK
+timers,setTimeout(),Test-URL.html,OK

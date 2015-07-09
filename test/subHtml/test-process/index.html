@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>nw-test</title>
+  </head>
+  <body>
+    <h1>test demo</h1>
+    <p id="message"></p>
+    <script type="text/javascript">
+    process.on('uncaughtException', function(err) {
+        console.log('wwtwwt: ' + err);
+    });
+    var env = process.env;
+    for(var key in env){
+       document.getElementById('message').innerHTML  +=  "<br>"+ key +  ":   " + env[key];
+     }
+     var versions = process.versions;
+      document.getElementById('message').innerHTML  +=  "<br><br>";
+     for(var key in versions){
+       document.getElementById('message').innerHTML  +=  "<br>"+ key +  ":   " + env[key];
+     }
+     //process.exit(1);
+
+     document.getElementById('message').innerHTML  +=  "<br><br> process.pid:   " +process.pid; 
+     document.getElementById('message').innerHTML  +=  "<br><br> process.arch:   " +process.arch; 
+     document.getElementById('message').innerHTML  +=  "<br><br> process.platform:   " +process.platform; 
+     document.getElementById('message').innerHTML  +=  "<br><br> process.memoryUsage():   " +process.memoryUsage(); 
+     document.getElementById('message').innerHTML  +=  "<br><br> process.uptime():   " +process.uptime(); 
+     document.getElementById('message').innerHTML  +=  "<br><br> process.hrtime():   " +process.hrtime(); 
+     document.getElementById('message').innerHTML  +=  "<br><br> process.mainModule:   " +process.mainModule; 
+     
+    </script>
+  </body>
+</html>

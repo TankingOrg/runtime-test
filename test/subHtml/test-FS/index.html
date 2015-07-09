@@ -12,14 +12,28 @@
     var fs = require('fs');
     var path = require('path');
     var abpath = path.resolve('./');
+
+     process.on('uncaughtException', function(err) {
+        console.log('wwtwwt: ' + err);
+    });
+    try{
+        process.chdir('sdcard');
+     }
+    catch(err){
+        console.log("wwtwwt: "+err);
+    }
     var currentPath = process.cwd();
     document.getElementById('message').innerHTML =  fs.toString()+'  <br>current path: '+abpath + "  <br>__dirname=" + currentPath+  "     <br>all file list:  ";
-    	fs.readdir(abpath,function(err, files){
+    	fs.readdir(currentPath,function(err, files){
     		if(err) throw err;
     		else for (var i = 0; i < files.length; i++) {
     			document.getElementById('message').innerHTML += "<br> " +files[i];
     		};
     	});
+        console.log("wwtwwt: dir is : " + currentPath+ 'sdcard/test-mkdir');
+          fs.mkdir(currentPath+ 'sdcard/test-mkdir',function(err){
+                if(err) console.log("wwtwwt:  mkdir err:: " + err);
+          })
     </script>
   </body>
 </html>

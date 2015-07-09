@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>nw-test</title>
+  </head>
+  <body>
+    <h1>test demo</h1>
+    <p id="message"></p>
+    <script type="text/javascript">
+    var dns = require('dns');
+
+dns.lookup('www.baidu.com', function onLookup(err, addresses, family) {
+  console.log("wwtwwt: " + err)
+  console.log('addresses:', addresses);
+   document.getElementById('message').innerHTML += "<br> addresses: " +  addresses + "<br> family: " + family;
+});
+
+dns.resolve4('www.baidu.com', function (err, addresses) {
+  if (err)  {
+    console.log("wwtwwt:"+ err);
+    return 0;
+  }
+  console.log('addresses: ' + JSON.stringify(addresses));
+  document.getElementById('message').innerHTML += "<br> addresses: " +  JSON.stringify(addresses);
+
+  /*addresses.forEach(function (a) {
+    dns.reverse(a, function (err, hostnames) {
+  if (err)  {
+    console.log("wwtwwt:"+ err);
+    return 0;
+  }
+      console.log('reverse for ' + a + ': ' + JSON.stringify(hostnames));
+    });
+  });*/
+});
+    </script>
+  </body>
+</html>
